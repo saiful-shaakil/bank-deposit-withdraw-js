@@ -8,11 +8,14 @@ function getMoney(fieldId, amount) {
 }
 function getTotalMoney(amount, isAdded) {
     const newInputMoney = parseFloat(amount);
+    const totalAmountInput = document.getElementById('total-balance');
+    const oldTotalAmount = totalAmountInput.innerText;
+    const newTotalAmount = parseFloat(oldTotalAmount);
     let totalBalance;
     if (isAdded == true) {
         totalBalance = newTotalAmount + newInputMoney;
     }
-    else {
+    if (isAdded == false) {
         totalBalance = newTotalAmount - newInputMoney;
     }
     totalAmountInput.innerText = totalBalance;
@@ -25,7 +28,7 @@ document.getElementById('deposit-submit').addEventListener('click', function () 
         getMoney('deposit', inputDepositAmount);
         getTotalMoney(inputDepositAmount, true);
     }
-    inputDepositAmount = '';
+    document.getElementById('deposit-input').value = '';
 
 })
 document.getElementById('withdraw-submit').addEventListener('click', function () {
@@ -34,10 +37,7 @@ document.getElementById('withdraw-submit').addEventListener('click', function ()
         getMoney('withdraw', inputWithdrawAmount);
         getTotalMoney(inputWithdrawAmount, false);
     }
-    inputWithdrawAmount.value = '';
+    document.getElementById('withdraw-input').value = '';
 
 });
 
-const totalAmountInput = document.getElementById('total-balance');
-const oldTotalAmount = totalAmountInput.innerText;
-const newTotalAmount = parseFloat(oldTotalAmount);
