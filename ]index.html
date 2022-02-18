@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takar Hiseb</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section class="mt-8">
+        <div class="grid grid-cols-3 gap-4 w-3/4 mx-auto text-white">
+            <div class="bg-blue-300 p-8 rounded">
+                <h2 class="text-2xl text-white">Deposit</h2>
+                <h3 class="text-4xl text-white">$<span id="total-deposit">00</span></h3>
+            </div>
+            <div class="bg-green-300 p-8 rounded">
+                <h2 class="text-2xl text-white">Withdraw</h2>
+                <h3 class="text-4xl text-white">$<span id="withdraw">00</span></h3>
+            </div>
+            <div class="bg-yellow-300 p-8 rounded">
+                <h2 class="text-2xl text-white">Balance</h2>
+                <h3 class="text-4xl text-white">$<span id="total-balance">00</span></h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="mt-4">
+        <div class="grid grid-cols-2 gap-4 w-3/4 mx-auto">
+            <div class="bg-pink-300 p-8 rounded">
+                <h1 class="text-2xl">Please Deposit</h1>
+                <input id="deposit" class="block w-3/4 px-2 border-2 border-slate-900 my-4" type="text"
+                    placeholder="Enter your $ amount">
+                <button id="deposit-submit" class="bg-emerald-300 px-4 font-semibold mt-2 text-white">Submit</button>
+            </div>
+            <div class="bg-orange-300 p-8 rounded">
+                <h1 class="text-2xl">Please Withdraw</h1>
+                <input id="withdraw-input" class="block w-3/4 px-2 border-2 border-slate-900 my-4" type="text"
+                    placeholder="Enter your $ amount">
+                <button id="withdraw-submit" class="bg-emerald-300 px-4 font-semibold mt-2 text-white">Submit</button>
+            </div>
+        </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
