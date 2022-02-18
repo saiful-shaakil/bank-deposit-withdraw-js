@@ -1,32 +1,43 @@
 function getMoney(fieldId, amount) {
-    const prevInputMoney = amount.value;
-    const newInputMoney = parseFloat(prevInputMoney);
+    const newInputMoney = parseFloat(amount);
     const amountInput = document.getElementById(fieldId);
     const oldAmount = amountInput.innerText;
     const prevAmount = parseFloat(oldAmount);
     const newTotalMoney = prevAmount + newInputMoney;
     amountInput.innerText = newTotalMoney;
-    amount.value = '';
-};
-function getTotalMoney(fieldId, isAdded) {
-    const inputAmount = document.getElementById(fieldId);
-    const oldAmount = inputAmount.innerText;
-    const newAmount = parseFloat(oldAmount);
-    const totalAmountInput = document.getElementById('total-balance');
-    const oldTotalAmount = totalAmountInput.innerText;
-    const newTotalAmount = parseFloat(oldTotalAmount);
-
+}
+function getTotalMoney(amount, isAdded) {
+    const newInputMoney = parseFloat(amount);
+    let totalBalance;
+    if (isAdded == true) {
+        totalBalance = newTotalAmount + newInputMoney;
+    }
+    else {
+        totalBalance = newTotalAmount - newInputMoney;
+    }
+    totalAmountInput.innerText = totalBalance;
 }
 
 
 document.getElementById('deposit-submit').addEventListener('click', function () {
-    const inputDepositAmount = document.getElementById('deposit-input');
-    getMoney('deposit', inputDepositAmount);
-    getTotalMoney();
+    let inputDepositAmount = document.getElementById('deposit-input').value;
+    if (inputDepositAmount > 0) {
+        getMoney('deposit', inputDepositAmount);
+        getTotalMoney(inputDepositAmount, true);
+    }
+    inputDepositAmount = '';
 
 })
 document.getElementById('withdraw-submit').addEventListener('click', function () {
-    const inputWithdrawAmount = document.getElementById('withdraw-input');
-    getMoney('withdraw', inputWithdrawAmount);
+    let inputWithdrawAmount = document.getElementById('withdraw-input').value;
+    if (inputWithdrawAmount > 0) {
+        getMoney('withdraw', inputWithdrawAmount);
+        getTotalMoney(inputWithdrawAmount, false);
+    }
+    inputWithdrawAmount.value = '';
 
-})
+});
+
+const totalAmountInput = document.getElementById('total-balance');
+const oldTotalAmount = totalAmountInput.innerText;
+const newTotalAmount = parseFloat(oldTotalAmount);
